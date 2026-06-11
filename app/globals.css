@@ -1,0 +1,90 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  color-scheme: light;
+  background: #fbfaf4;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  min-width: 320px;
+  margin: 0;
+  background:
+    radial-gradient(circle at 12% 12%, rgba(242, 191, 77, 0.28), transparent 34rem),
+    radial-gradient(circle at 86% 4%, rgba(220, 238, 247, 0.9), transparent 34rem),
+    linear-gradient(135deg, #fbfaf4 0%, #eef7ef 52%, #f9f0df 100%);
+  color: #15201c;
+}
+
+body::before {
+  position: fixed;
+  inset: 0;
+  z-index: -1;
+  pointer-events: none;
+  content: "";
+  opacity: 0.22;
+  background-image:
+    linear-gradient(rgba(21, 32, 28, 0.055) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(21, 32, 28, 0.045) 1px, transparent 1px);
+  background-size: 44px 44px;
+  mask-image: linear-gradient(to bottom, black, transparent 82%);
+}
+
+button,
+input,
+select,
+textarea {
+  font: inherit;
+}
+
+button,
+select {
+  cursor: pointer;
+}
+
+button:focus-visible,
+input:focus-visible,
+select:focus-visible,
+textarea:focus-visible {
+  outline: 3px solid rgba(232, 109, 79, 0.55);
+  outline-offset: 2px;
+}
+
+@layer components {
+  .field {
+    @apply flex flex-col gap-2 text-sm font-semibold text-ink;
+  }
+
+  .control {
+    @apply min-h-11 rounded-xl border border-ink/10 bg-white/85 px-3 text-sm font-medium text-ink shadow-sm transition placeholder:text-ink/35 focus:border-coral;
+  }
+
+  .textarea {
+    @apply min-h-28 rounded-xl border border-ink/10 bg-white/85 px-3 py-3 text-sm font-medium text-ink shadow-sm transition placeholder:text-ink/35 focus:border-coral;
+  }
+
+  .card {
+    @apply rounded-[1.75rem] bg-white/80 shadow-lift ring-1 ring-ink/10 backdrop-blur-xl;
+  }
+
+  .soft-card {
+    @apply rounded-2xl bg-white/60 ring-1 ring-ink/10;
+  }
+
+  .primary-button {
+    @apply inline-flex min-h-11 items-center justify-center rounded-xl bg-ink px-5 text-sm font-bold text-white shadow-color transition hover:-translate-y-0.5 hover:bg-kelp active:translate-y-0 disabled:cursor-not-allowed disabled:opacity-60;
+  }
+
+  .secondary-button {
+    @apply inline-flex min-h-11 items-center justify-center rounded-xl bg-white/80 px-5 text-sm font-bold text-ink ring-1 ring-ink/10 transition hover:-translate-y-0.5 hover:bg-limewash active:translate-y-0;
+  }
+}

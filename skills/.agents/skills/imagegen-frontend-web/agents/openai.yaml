@@ -1,0 +1,4 @@
+interface:
+  display_name: "Imagegen Frontend Web"
+  short_description: "Section-by-section website design images"
+  default_prompt: "Use $imagegen-frontend-web to create one premium website design image per section."

@@ -1,0 +1,4 @@
+interface:
+  display_name: "High-End Visual Design"
+  short_description: "Agency-level UI polish and motion systems"
+  default_prompt: "Use $high-end-visual-design to elevate this interface with premium visual design."

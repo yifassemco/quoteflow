@@ -1,0 +1,4 @@
+interface:
+  display_name: "Image To Code"
+  short_description: "Image-first premium website implementation"
+  default_prompt: "Use $image-to-code to generate design references and implement a matching website."

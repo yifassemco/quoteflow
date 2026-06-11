@@ -1,0 +1,4 @@
+interface:
+  display_name: "Full Output Enforcement"
+  short_description: "Complete unabridged generation guardrails"
+  default_prompt: "Use $full-output-enforcement to produce the complete requested implementation without placeholders."

@@ -1,0 +1,4 @@
+interface:
+  display_name: "Redesign Existing Projects"
+  short_description: "Upgrade existing websites without rewrites"
+  default_prompt: "Use $redesign-existing-projects to audit and upgrade this existing frontend."

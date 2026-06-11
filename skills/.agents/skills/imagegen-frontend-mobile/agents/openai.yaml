@@ -1,0 +1,4 @@
+interface:
+  display_name: "Imagegen Frontend Mobile"
+  short_description: "Premium mobile app screen image concepts"
+  default_prompt: "Use $imagegen-frontend-mobile to generate premium mobile app screen concepts."

@@ -1,0 +1,4 @@
+interface:
+  display_name: "Industrial Brutalist UI"
+  short_description: "Mechanical Swiss terminal interface style"
+  default_prompt: "Use $industrial-brutalist-ui to design a raw mechanical data-heavy interface."

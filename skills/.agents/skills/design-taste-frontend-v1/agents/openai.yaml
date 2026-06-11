@@ -1,0 +1,4 @@
+interface:
+  display_name: "Design Taste Frontend v1"
+  short_description: "Legacy v1 frontend taste guidance"
+  default_prompt: "Use $design-taste-frontend-v1 for a frontend task that needs the original v1 taste rules."

@@ -1,0 +1,4 @@
+interface:
+  display_name: "Design Taste Frontend"
+  short_description: "Anti-generic landing page and portfolio design"
+  default_prompt: "Use $design-taste-frontend to build a polished, non-generic frontend experience."

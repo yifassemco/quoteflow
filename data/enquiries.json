@@ -1,0 +1,275 @@
+[
+  {
+    "id": "5f4d1d8b-3eb5-44b1-9175-a899c5054262",
+    "reference": "PKQ-2026-0003",
+    "createdAt": "2026-06-11T05:50:44.149Z",
+    "revision": 1,
+    "data": {
+      "company": "National Frozen Treats",
+      "email": "innovation@frozen.example",
+      "contactName": "Daniel Wright",
+      "productType": "customLine",
+      "runVolume": 90000,
+      "frequency": "once",
+      "productStage": "unknown",
+      "urgency": "urgent",
+      "notes": "Large icy pole opportunity. Specs are developing and equipment may need sourcing.",
+      "hasPrimaryPackaging": false,
+      "hasSecondaryPackaging": false,
+      "hasProductSpecs": false,
+      "hasAllergens": false,
+      "hasSpecSheet": false,
+      "specDocumentsCount": 1,
+      "productPhotosCount": 24,
+      "ndaOption": "none",
+      "ndaDocumentsCount": 0
+    },
+    "score": {
+      "pillars": {
+        "market": 100,
+        "commitment": 12,
+        "fit": 84,
+        "readiness": 31
+      },
+      "total": 56,
+      "band": "Growth",
+      "reasoning": [
+        "Business email and company details provide a stronger commercial signal.",
+        "Uploaded documents or product photos improve quote readiness.",
+        "Route to engineering and finance review with 12-14 weeks before production as a lead-time assumption.",
+        "Readiness is limited because specs, packaging, allergen, or compliance details are incomplete.",
+        "Finance should review the revenue gap against the $500,000 annual target.",
+        "Lead band is internal only; staff approval is required before customer action."
+      ],
+      "scenarios": {
+        "conservative": 30375,
+        "base": 40500,
+        "upside": 50625,
+        "target": 500000,
+        "gap": 459500,
+        "takeOrPayCovered": 0
+      },
+      "recommendation": "Send missing-information request and continue commercial nurture.",
+      "internalAssumptions": {
+        "capability": "machinery",
+        "monthlyVolume": 7500,
+        "minimumVolume": 0,
+        "unitRevenue": 0.45,
+        "activeMonths": 12,
+        "appliedAnnualTarget": 500000
+      }
+    },
+    "ndaState": "Not requested",
+    "missingTasks": [
+      "Provide primary packaging details",
+      "Provide secondary packaging details",
+      "Provide product specification",
+      "Provide allergen and compliance information"
+    ],
+    "roleTasks": [
+      {
+        "role": "Commercial",
+        "task": "Approve lead band and customer response",
+        "status": "Open"
+      },
+      {
+        "role": "Production",
+        "task": "Confirm production fit and capacity assumptions",
+        "status": "Open"
+      },
+      {
+        "role": "Engineering",
+        "task": "Assess sourced machinery and 12-14 weeks before production commissioning path",
+        "status": "Open"
+      },
+      {
+        "role": "Finance",
+        "task": "Validate machinery amortisation coverage",
+        "status": "Open"
+      }
+    ],
+    "decisions": [
+      "Decline approved"
+    ],
+    "audit": [
+      "11 June 2026, 3:51 pm human decision: Decline approved",
+      "11 June 2026, 3:50 pm enquiry submitted",
+      "11 June 2026, 3:50 pm Growth score generated"
+    ]
+  },
+  {
+    "id": "ba64b630-b745-46fc-9bfa-8394b587443f",
+    "reference": "PKQ-2026-0002",
+    "createdAt": "2026-06-11T05:49:02.037Z",
+    "revision": 1,
+    "data": {
+      "company": "pap",
+      "email": "procurement@pantry.example",
+      "contactName": "daniel",
+      "productType": "hotfill",
+      "runVolume": 150000,
+      "frequency": "monthly",
+      "productStage": "pilot",
+      "urgency": "standard",
+      "notes": "",
+      "hasPrimaryPackaging": true,
+      "hasSecondaryPackaging": false,
+      "hasProductSpecs": false,
+      "hasAllergens": false,
+      "hasSpecSheet": true,
+      "specDocumentsCount": 2,
+      "productPhotosCount": 3,
+      "ndaOption": "pakco",
+      "ndaDocumentsCount": 0
+    },
+    "score": {
+      "pillars": {
+        "market": 100,
+        "commitment": 100,
+        "fit": 100,
+        "readiness": 64
+      },
+      "total": 93,
+      "band": "Enterprise",
+      "reasoning": [
+        "Business email and company details provide a stronger commercial signal.",
+        "Estimated recurring volume meets the configured enterprise threshold.",
+        "Uploaded documents or product photos improve quote readiness.",
+        "Base MCV scenario supports the configured enterprise target.",
+        "Lead band is internal only; staff approval is required before customer action."
+      ],
+      "scenarios": {
+        "conservative": 607500,
+        "base": 810000,
+        "upside": 1012500,
+        "target": 250000,
+        "gap": -560000,
+        "takeOrPayCovered": 202500
+      },
+      "recommendation": "Escalate to CEO engagement and senior commercial review.",
+      "internalAssumptions": {
+        "capability": "current",
+        "monthlyVolume": 150000,
+        "minimumVolume": 37500,
+        "unitRevenue": 0.45,
+        "activeMonths": 12,
+        "appliedAnnualTarget": 250000
+      }
+    },
+    "ndaState": "Pakco NDA requested",
+    "missingTasks": [
+      "Provide secondary packaging details",
+      "Provide product specification",
+      "Provide allergen and compliance information"
+    ],
+    "roleTasks": [
+      {
+        "role": "Commercial",
+        "task": "Approve lead band and customer response",
+        "status": "Open"
+      },
+      {
+        "role": "Production",
+        "task": "Confirm production fit and capacity assumptions",
+        "status": "Open"
+      },
+      {
+        "role": "Finance",
+        "task": "Validate MCV revenue assumptions",
+        "status": "Open"
+      }
+    ],
+    "decisions": [],
+    "audit": [
+      "11 June 2026, 3:49 pm enquiry submitted",
+      "11 June 2026, 3:49 pm Enterprise score generated"
+    ]
+  },
+  {
+    "id": "eebdcbd1-14cf-4aab-85f0-2a1234921ff2",
+    "reference": "PKQ-2026-0001",
+    "createdAt": "2026-06-11T05:44:38.387Z",
+    "revision": 1,
+    "data": {
+      "company": "Colesworth Pantry Co",
+      "email": "procurement@pantry.example",
+      "contactName": "Mira Chen",
+      "productType": "hotfill",
+      "runVolume": 120000,
+      "frequency": "monthly",
+      "productStage": "repeat",
+      "urgency": "urgent",
+      "notes": "Hot-fill jarring, labelling, and carton packing for enterprise retail distribution.",
+      "hasPrimaryPackaging": true,
+      "hasSecondaryPackaging": true,
+      "hasProductSpecs": true,
+      "hasAllergens": true,
+      "hasSpecSheet": true,
+      "specDocumentsCount": 2,
+      "productPhotosCount": 3,
+      "ndaOption": "pakco",
+      "ndaDocumentsCount": 0
+    },
+    "score": {
+      "pillars": {
+        "market": 100,
+        "commitment": 100,
+        "fit": 100,
+        "readiness": 100
+      },
+      "total": 100,
+      "band": "Enterprise",
+      "reasoning": [
+        "Business email and company details provide a stronger commercial signal.",
+        "Estimated recurring volume meets the configured enterprise threshold.",
+        "Uploaded documents or product photos improve quote readiness.",
+        "Base MCV scenario supports the configured enterprise target.",
+        "Lead band is internal only; staff approval is required before customer action."
+      ],
+      "scenarios": {
+        "conservative": 486000,
+        "base": 648000,
+        "upside": 810000,
+        "target": 250000,
+        "gap": -398000,
+        "takeOrPayCovered": 486000
+      },
+      "recommendation": "Escalate to CEO engagement and senior commercial review.",
+      "internalAssumptions": {
+        "capability": "current",
+        "monthlyVolume": 120000,
+        "minimumVolume": 90000,
+        "unitRevenue": 0.45,
+        "activeMonths": 12,
+        "appliedAnnualTarget": 250000
+      }
+    },
+    "ndaState": "Pakco NDA requested",
+    "missingTasks": [],
+    "roleTasks": [
+      {
+        "role": "Commercial",
+        "task": "Approve lead band and customer response",
+        "status": "Open"
+      },
+      {
+        "role": "Production",
+        "task": "Confirm production fit and capacity assumptions",
+        "status": "Open"
+      },
+      {
+        "role": "Finance",
+        "task": "Validate MCV revenue assumptions",
+        "status": "Open"
+      }
+    ],
+    "decisions": [
+      "Approved recommendation"
+    ],
+    "audit": [
+      "11 June 2026, 3:44 pm human decision: Approved recommendation",
+      "11 June 2026, 3:44 pm enquiry submitted",
+      "11 June 2026, 3:44 pm Enterprise score generated"
+    ]
+  }
+]

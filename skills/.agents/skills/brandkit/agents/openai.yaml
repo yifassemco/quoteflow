@@ -1,0 +1,4 @@
+interface:
+  display_name: "Brandkit"
+  short_description: "Premium brand identity image direction"
+  default_prompt: "Use $brandkit to create a premium brand-kit image for a new product."

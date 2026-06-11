@@ -1,0 +1,411 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="Pakco QuoteFlow intake and review workspace for co-packaging enquiries."
+    />
+    <title>Pakco QuoteFlow</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <a class="skip-link" href="#workspace">Skip to workspace</a>
+
+    <div class="app-shell">
+      <header class="masthead">
+        <div class="brand">
+          <div class="brand-mark" aria-hidden="true">P</div>
+          <div>
+            <h1>Pakco QuoteFlow</h1>
+            <p>Croydon VIC enterprise portal</p>
+          </div>
+        </div>
+
+        <nav class="nav-tabs" aria-label="QuoteFlow sections">
+          <button class="nav-tab active" data-view="intake" type="button">
+            New enquiry
+          </button>
+          <button class="nav-tab" data-view="customer" type="button">
+            Customer return
+          </button>
+          <button class="nav-tab" data-view="internal" type="button">
+            Internal review
+          </button>
+          <button class="nav-tab" data-view="settings" type="button">
+            Settings
+          </button>
+        </nav>
+
+        <div class="masthead-actions" aria-label="Demo data">
+          <button class="secondary-button compact" id="loadDemo" type="button">
+            Ready product
+          </button>
+          <button class="secondary-button compact" id="loadMachineryDemo" type="button">
+            New line
+          </button>
+        </div>
+      </header>
+
+      <main id="workspace">
+        <section class="topbar">
+          <div>
+            <p class="eyebrow">Enterprise portal</p>
+            <h2 id="viewTitle">New enquiry</h2>
+          </div>
+          <div class="topbar-note">
+            Recommendations stay internal until a staff member approves the customer response.
+          </div>
+        </section>
+
+        <section class="view active" id="intakeView" aria-labelledby="viewTitle">
+          <div class="layout-two">
+            <form id="enquiryForm" class="panel intake-panel">
+              <div class="wizard-head">
+                <div>
+                  <p class="eyebrow">Quote request</p>
+                  <h3>Start with the quick triage</h3>
+                  <p class="wizard-copy">Three small steps are enough to start. Specs, photos, and NDA details can be added later.</p>
+                </div>
+                <span class="status-pill" id="intakeStepCount">Step 1 of 5</span>
+              </div>
+
+              <div class="wizard-progress" aria-label="Enquiry progress">
+                <div class="progress-meta">
+                  <span id="intakeStepLabel">Contact</span>
+                  <span id="intakeProgressText">20% complete</span>
+                </div>
+                <div class="progress-track" aria-hidden="true">
+                  <span id="intakeProgressBar"></span>
+                </div>
+                <ol class="step-list">
+                  <li class="active" data-step-dot="0">Contact</li>
+                  <li data-step-dot="1">Volume</li>
+                  <li data-step-dot="2">Brief</li>
+                  <li data-step-dot="3">Review</li>
+                  <li data-step-dot="4">Details</li>
+                </ol>
+              </div>
+
+              <section class="wizard-step active" data-step="0" aria-labelledby="stepContactTitle">
+                <div class="step-intro">
+                  <p class="eyebrow">First, the basics</p>
+                  <h4 id="stepContactTitle">Who should Pakco contact?</h4>
+                  <p>Just enough to create a traceable enquiry.</p>
+                </div>
+                <div class="form-grid">
+                  <label>
+                    Company
+                    <input name="company" required placeholder="National Foods Co" />
+                  </label>
+                  <label>
+                    Contact email
+                    <input name="email" required type="email" placeholder="contact@company.com" />
+                  </label>
+                  <label class="wide-grid">
+                    Type of co-packaging job
+                    <select name="productType">
+                      <option value="hotfill">Hot-fill / jarring</option>
+                      <option value="ambientLiquid">Ambient liquid filling</option>
+                      <option value="viscous">Sauce, syrup, paste, or viscous filling</option>
+                      <option value="dryFill">Dry powder, granule, or dry goods filling</option>
+                      <option value="pouch">Pouch, sachet, or stick-pack filling</option>
+                      <option value="bottle">Bottle, tub, cup, or container filling</option>
+                      <option value="carton">Cartoning, sleeving, or case packing</option>
+                      <option value="label">Labelling, lidding, coding, or sleeving</option>
+                      <option value="bundle">Multipack, kitting, bundling, or gift packs</option>
+                      <option value="display">Retail display, shipper, or promotional builds</option>
+                      <option value="rework">Rework, inspection, relabelling, or repacking</option>
+                      <option value="sample">Samples, trial packs, or short-run launch packs</option>
+                      <option value="cold">Cold-fill, chilled, frozen, or temperature-sensitive packing</option>
+                      <option value="customLine">Custom line build or machinery-sourced project</option>
+                      <option value="other">Other co-packaging requirement</option>
+                    </select>
+                  </label>
+                </div>
+              </section>
+
+              <section class="wizard-step" data-step="1" aria-labelledby="stepVolumeTitle">
+                <div class="step-intro">
+                  <p class="eyebrow">Next, rough size</p>
+                  <h4 id="stepVolumeTitle">How much work might this be?</h4>
+                  <p>Approximate answers are fine. Pakco can firm up the numbers later.</p>
+                </div>
+                <div class="form-grid">
+                  <label>
+                    Estimated units per run
+                    <input name="runVolume" type="number" min="0" step="1000" placeholder="50000" />
+                  </label>
+                  <label>
+                    Repeat frequency
+                    <select name="frequency">
+                      <option value="unknown">Not sure yet</option>
+                      <option value="once">One-off run</option>
+                      <option value="quarterly">Quarterly</option>
+                      <option value="monthly">Monthly</option>
+                      <option value="fortnightly">Fortnightly</option>
+                      <option value="weekly">Weekly</option>
+                    </select>
+                  </label>
+                  <label class="wide-grid">
+                    Preferred timing
+                    <select name="urgency">
+                      <option value="flexible">Flexible</option>
+                      <option value="standard">Within the next 1-3 months</option>
+                      <option value="urgent">As soon as possible</option>
+                    </select>
+                  </label>
+                </div>
+              </section>
+
+              <section class="wizard-step" data-step="2" aria-labelledby="stepBriefTitle">
+                <div class="step-intro">
+                  <p class="eyebrow">Short brief</p>
+                  <h4 id="stepBriefTitle">What are you trying to pack?</h4>
+                  <p>One or two sentences is enough for initial triage.</p>
+                </div>
+                <div class="form-grid">
+                  <label>
+                    Product stage
+                    <select name="productStage">
+                      <option value="unknown">Not sure yet</option>
+                      <option value="concept">Concept / trial</option>
+                      <option value="pilot">Pilot run</option>
+                      <option value="ready">Ready for production</option>
+                      <option value="repeat">Repeat production program</option>
+                    </select>
+                  </label>
+                  <label class="wide-grid">
+                    Product and packaging brief
+                    <textarea
+                      name="notes"
+                      rows="4"
+                      placeholder="Example: hot-fill sauce into glass jars, with labelling and carton packing."
+                    ></textarea>
+                  </label>
+                </div>
+              </section>
+
+              <section class="wizard-step" data-step="3" aria-labelledby="stepReviewTitle">
+                <div class="step-intro">
+                  <p class="eyebrow">Ready to send</p>
+                  <h4 id="stepReviewTitle">Pakco can start reviewing this now</h4>
+                  <p>You will get a reference number. If more detail is needed, the return link brings you back to the missing items.</p>
+                </div>
+                <div class="review-card" id="triageSummary" aria-live="polite">
+                  <strong>Quick triage is ready.</strong>
+                  <span>Submit now, or add the detailed pack first if you already have it.</span>
+                </div>
+              </section>
+
+              <section class="wizard-step" data-step="4" aria-labelledby="stepDetailsTitle">
+                <div class="step-intro">
+                  <p class="eyebrow">Optional details</p>
+                  <h4 id="stepDetailsTitle">Add the full pack now, or finish it later</h4>
+                  <p>These details improve readiness, but they are not required to start the enquiry.</p>
+                </div>
+                <fieldset>
+                  <legend>Product information pack</legend>
+                  <div class="check-grid">
+                    <label class="check-row"><input name="hasPrimaryPackaging" type="checkbox" /> Primary packaging details</label>
+                    <label class="check-row"><input name="hasSecondaryPackaging" type="checkbox" /> Secondary packaging details</label>
+                    <label class="check-row"><input name="hasProductSpecs" type="checkbox" /> Product specification</label>
+                    <label class="check-row"><input name="hasAllergens" type="checkbox" /> Allergen and compliance information</label>
+                    <label class="check-row"><input name="hasSpecSheet" type="checkbox" /> Spec sheet available</label>
+                  </div>
+                  <div class="form-grid">
+                    <label>
+                      Upload spec sheets or packaging documents
+                      <input name="specDocuments" type="file" multiple />
+                    </label>
+                    <label>
+                      Upload product or packaging photos
+                      <input name="productPhotos" type="file" accept="image/*" multiple />
+                    </label>
+                  </div>
+                  <div class="photo-preview-grid" id="photoPreview" aria-live="polite"></div>
+                </fieldset>
+
+                <fieldset>
+                  <legend>Optional NDA</legend>
+                  <div class="option-stack">
+                    <label class="choice-row"><input name="ndaOption" type="radio" value="none" checked /> <span>No NDA needed now</span></label>
+                    <label class="choice-row"><input name="ndaOption" type="radio" value="pakco" /> <span>Request Pakco NDA using contact email</span></label>
+                    <label class="choice-row"><input name="ndaOption" type="radio" value="customer" /> <span>Upload customer NDA for review</span></label>
+                  </div>
+                  <label>
+                    Upload customer NDA
+                    <input name="ndaDocuments" type="file" multiple />
+                  </label>
+                </fieldset>
+              </section>
+
+              <div class="wizard-actions">
+                <button class="secondary-button" id="intakeBack" type="button">Back</button>
+                <div class="button-row">
+                  <button class="secondary-button" id="resetForm" type="button">Clear</button>
+                  <button class="secondary-button" id="addDetails" type="button">Add details first</button>
+                  <button class="primary-button" id="intakeNext" type="button">Continue</button>
+                  <button class="primary-button" id="submitTriage" type="submit">Request quote review</button>
+                </div>
+              </div>
+            </form>
+
+            <aside class="score-panel panel" id="scorePreview">
+              <div class="empty-state">
+                <h3>Fast quote review</h3>
+                <p>Submit the basics now. If Pakco needs more detail, the reference link returns to the exact missing items.</p>
+              </div>
+            </aside>
+          </div>
+        </section>
+
+        <section class="view" id="customerView" aria-labelledby="viewTitle">
+          <div class="layout-two">
+            <div class="panel">
+              <div class="panel-header">
+                <div>
+                  <p class="eyebrow">Reference retrieval</p>
+                  <h3>Return to an enquiry</h3>
+                </div>
+              </div>
+              <div class="form-grid single">
+                <label>
+                  Quote/reference number
+                  <input id="returnRef" placeholder="PKQ-2026-0001" />
+                </label>
+                <label>
+                  Email
+                  <input id="returnEmail" type="email" placeholder="contact@company.com" />
+                </label>
+                <label>
+                  One-time code
+                  <input id="otpCode" placeholder="Demo code: 000000" />
+                </label>
+              </div>
+              <div class="button-row">
+                <button class="primary-button" id="retrieveEnquiry" type="button">Retrieve</button>
+                <button class="secondary-button" id="requestOtp" type="button">Send OTP</button>
+              </div>
+            </div>
+            <div class="panel" id="customerCase">
+              <div class="empty-state">
+                <h3>No enquiry loaded</h3>
+                <p>Customers use their reference number and email OTP to add missing specs or request NDA support.</p>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <section class="view" id="internalView" aria-labelledby="viewTitle">
+          <div class="internal-grid">
+            <div class="panel queue-panel">
+              <div class="panel-header">
+                <div>
+                  <p class="eyebrow">Review queue</p>
+                  <h3>Human-controlled decisions</h3>
+                </div>
+              </div>
+              <div id="queueList" class="queue-list"></div>
+            </div>
+            <div class="panel" id="internalDetail">
+              <div class="empty-state">
+                <h3>Select an enquiry</h3>
+                <p>Review scores, approve actions, override recommendations, and assign finance, production, or engineering tasks.</p>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <section class="view" id="settingsView" aria-labelledby="viewTitle">
+          <form id="settingsForm" class="panel settings-panel">
+            <div class="panel-header">
+              <div>
+                <p class="eyebrow">Admin settings</p>
+                <h3>Configurable scoring defaults</h3>
+              </div>
+              <span class="status-pill">V1 defaults</span>
+            </div>
+            <div class="form-grid">
+              <label>
+                Fallback annual revenue target
+                <input name="annualRevenueTarget" type="number" min="0" step="10000" />
+              </label>
+              <label>
+                Monthly committed volume threshold
+                <input name="monthlyVolumeThreshold" type="number" min="0" step="1000" />
+              </label>
+              <label>
+                Minimum committed volume threshold
+                <input name="minimumVolumeThreshold" type="number" min="0" step="1000" />
+              </label>
+              <label>
+                Internal revenue per unit assumption
+                <input name="internalRevenuePerUnit" type="number" min="0" step="0.01" />
+              </label>
+              <label>
+                Machinery lead time
+                <input name="machineryLeadTime" />
+              </label>
+              <label>
+                Reject threshold
+                <input name="rejectThreshold" type="number" min="0" max="100" />
+              </label>
+              <label>
+                Enterprise threshold
+                <input name="enterpriseThreshold" type="number" min="0" max="100" />
+              </label>
+              <label>
+                Market pillar weight
+                <input name="marketWeight" type="number" min="0" max="100" />
+              </label>
+              <label>
+                Commitment pillar weight
+                <input name="commitmentWeight" type="number" min="0" max="100" />
+              </label>
+              <label>
+                Fit pillar weight
+                <input name="fitWeight" type="number" min="0" max="100" />
+              </label>
+              <label>
+                Readiness pillar weight
+                <input name="readinessWeight" type="number" min="0" max="100" />
+              </label>
+            </div>
+            <fieldset>
+              <legend>Enterprise annual targets by job type</legend>
+              <div class="form-grid compact-grid">
+                <label>Hot-fill / jarring <input name="target_hotfill" type="number" min="0" step="10000" /></label>
+                <label>Ambient liquid filling <input name="target_ambientLiquid" type="number" min="0" step="10000" /></label>
+                <label>Viscous filling <input name="target_viscous" type="number" min="0" step="10000" /></label>
+                <label>Dry fill <input name="target_dryFill" type="number" min="0" step="10000" /></label>
+                <label>Pouch / sachet / stick-pack <input name="target_pouch" type="number" min="0" step="10000" /></label>
+                <label>Bottle / tub / cup filling <input name="target_bottle" type="number" min="0" step="10000" /></label>
+                <label>Cartoning / case packing <input name="target_carton" type="number" min="0" step="10000" /></label>
+                <label>Labelling / lidding / coding <input name="target_label" type="number" min="0" step="10000" /></label>
+                <label>Kitting / bundling <input name="target_bundle" type="number" min="0" step="10000" /></label>
+                <label>Retail display builds <input name="target_display" type="number" min="0" step="10000" /></label>
+                <label>Rework / relabelling <input name="target_rework" type="number" min="0" step="10000" /></label>
+                <label>Samples / trial packs <input name="target_sample" type="number" min="0" step="10000" /></label>
+                <label>Cold / chilled / frozen <input name="target_cold" type="number" min="0" step="10000" /></label>
+                <label>Custom line build <input name="target_customLine" type="number" min="0" step="10000" /></label>
+                <label>Other co-packaging <input name="target_other" type="number" min="0" step="10000" /></label>
+              </div>
+            </fieldset>
+            <label>
+              NDA email template
+              <textarea name="ndaTemplate" rows="5"></textarea>
+            </label>
+            <div class="button-row">
+              <button class="primary-button" type="submit">Save settings</button>
+              <button class="secondary-button" id="resetSettings" type="button">Reset defaults</button>
+            </div>
+          </form>
+        </section>
+      </main>
+    </div>
+
+    <script src="app.js"></script>
+  </body>
+</html>

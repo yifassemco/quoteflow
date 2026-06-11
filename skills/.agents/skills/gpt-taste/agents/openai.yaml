@@ -1,0 +1,4 @@
+interface:
+  display_name: "GPT Taste"
+  short_description: "Awwwards-style UI and GSAP motion"
+  default_prompt: "Use $gpt-taste to create an expressive premium frontend with advanced motion."
