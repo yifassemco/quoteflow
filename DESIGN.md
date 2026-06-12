@@ -2,7 +2,7 @@
 
 ## 1. Visual Theme & Atmosphere
 
-Pakco QuoteFlow is an enterprise co-packaging workflow, not a marketing site. It should feel like a controlled case file moving through a verified quote process: practical, calm, structured, and certain. The interface should create confidence for enterprise leads by showing what has been saved, what Pakco needs next, and when the enquiry is ready for internal review.
+Pakco QuoteFlow is an enterprise co-packaging workflow within the Pakco brand, not a standalone brand or marketing site. It should feel like a controlled case file moving through a verified quote process: practical, calm, structured, and certain. The interface should create confidence for enterprise leads after they click a CTA on Pakco's upcoming landing page by showing what has been saved, what Pakco needs next, and when the enquiry is ready for internal review.
 
 Use a daily-app balanced density: enough information for procurement and internal staff to scan confidently, never so airy that the product feels decorative. Variance is restrained: layouts may be asymmetric when it clarifies priority, but the system should feel ordered and repeatable. Motion is quiet and functional: state changes should confirm progress, not entertain.
 
@@ -10,9 +10,9 @@ Core metaphor: a verified path from enquiry to quote readiness. The customer sta
 
 ## 2. Color Palette & Roles
 
-Use `#1E63B5` as the dominant brand and action color. It represents confidence, enterprise stability, and controlled progress. It should replace the current green, coral, marigold, and decorative pastel system.
+Use `#1E63B5` as Pakco's dominant digital action color for this workflow. It represents confidence, enterprise stability, and controlled progress. It should replace the current green, coral, marigold, and decorative pastel system.
 
-- **QuoteFlow Blue** (`#1E63B5`) — Primary brand color. Use for primary buttons, active stages, selected navigation, focus rings, links, reference highlights, and high-confidence progress states.
+- **Pakco Blue** (`#1E63B5`) — Primary Pakco digital action color. Use for primary buttons, active stages, selected navigation, focus rings, links, reference highlights, and high-confidence progress states.
 - **Deep Navy** (`#102A43`) — Primary heading and high-emphasis surface color. Use for app header text, internal review emphasis, and selected queue rows when a dark state is needed.
 - **Slate Ink** (`#243447`) — Main body text. Use for labels, values, and dense operational content.
 - **Muted Steel** (`#64748B`) — Secondary text, metadata, helper copy, timestamps, and inactive stage descriptions.
@@ -26,7 +26,7 @@ Use `#1E63B5` as the dominant brand and action color. It represents confidence, 
 
 Color discipline:
 
-- One brand color: QuoteFlow Blue.
+- One primary Pakco action color: Pakco Blue.
 - Green, amber, and red are semantic status colors only.
 - Do not use gradients for brand expression.
 - Do not use decorative pastel cards.
@@ -61,15 +61,21 @@ Avoid vague trust copy:
 
 ### Navigation
 
-Use a quiet top navigation. The active tab should use QuoteFlow Blue or Deep Navy with a clear selected state. Navigation should not look like a marketing hero or floating glass card.
+Use a quiet top navigation. The active tab should use Pakco Blue or Deep Navy with a clear selected state. Navigation should not look like a marketing hero or floating glass card.
 
-### Brand Mark
+### Pakco Logo and Product Naming
 
-The `PQ` mark should be flat and controlled. Use QuoteFlow Blue or Deep Navy, not gradients. If a symbol is introduced later, it should combine a path, reference frame, or checkpoint. Avoid food icons, package clipart, sparkles, and mascot logic.
+Do not create a separate QuoteFlow logo. The logo in this product should be Pakco's existing logo: a blue slanted block with the Pakco wordmark. QuoteFlow is a product/workflow name and may appear as text in navigation, headings, page titles, metadata, or CTA labels, but it must not have its own independent symbol, monogram, or wordmark.
+
+If the Pakco logo asset is unavailable during prototyping, use a restrained text lockup such as “Pakco” with “QuoteFlow” as a secondary product label. Avoid `PQ` monograms, invented QuoteFlow marks, food icons, package clipart, sparkles, mascot logic, and any visual treatment that implies QuoteFlow is a separate brand.
+
+The transition from Pakco's landing page CTA into QuoteFlow should feel continuous: same Pakco logo, same primary blue, same trust tone, and no jarring rebrand at the application boundary.
+
+The Pakco logo's slanted block can influence the broader interface subtly. Use diagonal cuts or slanted edge details sparingly in high-value places such as the app header, reference receipt, or active progress marker. Do not overuse angled shapes across cards or form fields; the core UI should remain stable, rectangular, and easy to scan.
 
 ### Buttons
 
-- **Primary:** QuoteFlow Blue fill, white text, medium radius (`0.5rem` to `0.75rem`), no glow. Use for “Save contact and get reference,” “Continue,” and “Submit for internal review.”
+- **Primary:** Pakco Blue fill, white text, medium radius (`0.5rem` to `0.75rem`), no glow. Use for “Save contact and get reference,” “Continue,” and “Submit for internal review.”
 - **Secondary:** White or Canvas Blue Grey fill, Border Steel outline, Slate Ink text. Use for Back, Refresh, and secondary navigation actions.
 - **Destructive:** Exception Red only for actual decline or destructive states.
 - Active feedback may use a subtle `translateY(1px)` or `scale(0.99)`. No bouncing, glow, or playful motion.
@@ -82,7 +88,7 @@ Forms are the core customer experience. They must feel easy, not small or crowde
 - Helper text below only when it reduces uncertainty.
 - Required fields should be obvious without shouting.
 - Error text appears inline, below the field.
-- Focus ring uses QuoteFlow Blue.
+- Focus ring uses Pakco Blue.
 - File upload areas should look like document intake, not generic upload widgets.
 
 ### Staged Intake
@@ -206,7 +212,7 @@ Use real operational terms:
 ## 8. Accessibility and Responsive Rules
 
 - Every interactive target must be at least `44px` tall.
-- Focus states must be visible and use QuoteFlow Blue.
+- Focus states must be visible and use Pakco Blue.
 - Customer progress cannot rely on color alone; include text labels.
 - Badges must include readable text, not just color.
 - Mobile intake must collapse to a single column with no horizontal scroll.
@@ -245,10 +251,11 @@ Test at:
 
 When applying this system to the current Next.js app:
 
-1. Replace the existing Tailwind color tokens with the QuoteFlow Blue system.
+1. Replace the existing Tailwind color tokens with the Pakco Blue system.
 2. Remove the green, coral, marigold, limewash, and skyglass decorative palette.
 3. Simplify the body background to Canvas Blue Grey.
-4. Make the `PQ` mark flat blue or navy.
+4. Replace the invented `PQ` mark with the Pakco logo. If no Pakco logo asset exists yet, use a temporary text-only Pakco lockup with QuoteFlow as a secondary product label.
+5. Carry the Pakco logo's slanted blue block language into one or two restrained interface details only, such as the header brand tile or reference receipt accent.
 5. Rebuild staged intake states around reference number, saved stage, next action, and document readiness.
 6. Rewrite prototype/demo wording into production-confidence wording.
 7. Make internal review a controlled case file with clear customer-visible and internal-only zones.

@@ -1,0 +1,1062 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Pakco QuoteFlow Workflow Deck</title>
+  <style>
+    :root {
+      --pakco: #1E63B5;
+      --navy: #102A43;
+      --ink: #243447;
+      --slate: #64748B;
+      --canvas: #F6F8FB;
+      --surface: #FFFFFF;
+      --bluewash: #EAF2FC;
+      --border: #D8E1EC;
+      --success: #177245;
+      --amber: #B7791F;
+      --danger: #B42318;
+      --shadow: 0 18px 42px rgba(16, 42, 67, 0.1);
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      margin: 0;
+      background: var(--canvas);
+      color: var(--ink);
+      font-family: Geist, Satoshi, Aptos, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+    }
+
+    .deck {
+      width: min(1180px, calc(100vw - 32px));
+      margin: 0 auto;
+      padding: 24px 0 92px;
+    }
+
+    .slide {
+      min-height: min(720px, calc(100vh - 64px));
+      margin: 0 0 28px;
+      padding: 42px;
+      display: grid;
+      grid-template-rows: auto 1fr auto;
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      background: var(--surface);
+      box-shadow: var(--shadow);
+      page-break-after: always;
+      overflow: hidden;
+    }
+
+    .slide-header,
+    .slide-footer,
+    .row,
+    .split,
+    .three,
+    .case-header,
+    .mini-row {
+      display: flex;
+    }
+
+    .slide-header,
+    .slide-footer,
+    .case-header,
+    .mini-row {
+      align-items: center;
+      justify-content: space-between;
+      gap: 18px;
+    }
+
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      min-width: 0;
+    }
+
+    .pakco-mark {
+      flex: 0 0 auto;
+      transform: skewX(-9deg);
+      background: var(--pakco);
+      color: white;
+      padding: 12px 18px;
+      border-radius: 2px;
+      font-family: "Geist Mono", "SFMono-Regular", ui-monospace, monospace;
+      font-weight: 800;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+    }
+
+    .pakco-mark span {
+      display: block;
+      transform: skewX(9deg);
+    }
+
+    .eyebrow {
+      margin: 0 0 8px;
+      color: var(--pakco);
+      font-family: "Geist Mono", "SFMono-Regular", ui-monospace, monospace;
+      font-size: 11px;
+      font-weight: 800;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+    }
+
+    .section-label {
+      margin: 0;
+      color: var(--slate);
+      font-family: "Geist Mono", "SFMono-Regular", ui-monospace, monospace;
+      font-size: 11px;
+      font-weight: 800;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+    }
+
+    h1,
+    h2,
+    h3,
+    p {
+      margin-top: 0;
+    }
+
+    h1 {
+      max-width: 780px;
+      margin-bottom: 18px;
+      color: var(--navy);
+      font-size: clamp(40px, 6vw, 72px);
+      line-height: 0.98;
+      letter-spacing: -0.04em;
+    }
+
+    h2 {
+      max-width: 760px;
+      margin-bottom: 18px;
+      color: var(--navy);
+      font-size: clamp(34px, 4.8vw, 58px);
+      line-height: 1;
+      letter-spacing: -0.035em;
+    }
+
+    h3 {
+      margin-bottom: 10px;
+      color: var(--navy);
+      font-size: 19px;
+      line-height: 1.2;
+      letter-spacing: -0.015em;
+    }
+
+    .lead {
+      max-width: 700px;
+      color: var(--ink);
+      font-size: 21px;
+      line-height: 1.45;
+      font-weight: 650;
+    }
+
+    .body-copy {
+      color: var(--slate);
+      font-size: 15px;
+      line-height: 1.55;
+      font-weight: 600;
+    }
+
+    .slide-body {
+      align-self: center;
+      width: 100%;
+    }
+
+    .split {
+      align-items: stretch;
+      gap: 28px;
+    }
+
+    .split > * {
+      flex: 1;
+      min-width: 0;
+    }
+
+    .three {
+      align-items: stretch;
+      gap: 18px;
+    }
+
+    .three > * {
+      flex: 1;
+      min-width: 0;
+    }
+
+    .panel {
+      border: 1px solid var(--border);
+      border-radius: 14px;
+      background: white;
+      padding: 22px;
+    }
+
+    .panel.tint {
+      background: var(--bluewash);
+      border-color: rgba(30, 99, 181, 0.22);
+    }
+
+    .panel.dark {
+      background: var(--navy);
+      border-color: var(--navy);
+      color: white;
+    }
+
+    .panel.dark h3,
+    .panel.dark .section-label {
+      color: white;
+    }
+
+    .panel.dark .body-copy {
+      color: rgba(255, 255, 255, 0.72);
+    }
+
+    .quote {
+      margin: 24px 0 0;
+      padding: 18px 20px;
+      border-left: 4px solid var(--pakco);
+      background: var(--bluewash);
+      color: var(--navy);
+      font-size: 19px;
+      line-height: 1.35;
+      font-weight: 800;
+    }
+
+    .journey {
+      display: grid;
+      grid-template-columns: repeat(5, 1fr);
+      gap: 12px;
+      margin-top: 30px;
+    }
+
+    .step {
+      min-height: 178px;
+      padding: 16px;
+      border: 1px solid var(--border);
+      border-radius: 14px;
+      background: white;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+
+    .step.active {
+      border-color: var(--pakco);
+      background: var(--bluewash);
+    }
+
+    .number {
+      width: 34px;
+      height: 34px;
+      display: grid;
+      place-items: center;
+      border-radius: 7px;
+      background: var(--canvas);
+      color: var(--slate);
+      font-family: "Geist Mono", "SFMono-Regular", ui-monospace, monospace;
+      font-size: 13px;
+      font-weight: 900;
+    }
+
+    .active .number {
+      background: var(--pakco);
+      color: white;
+    }
+
+    .step p {
+      margin-bottom: 0;
+      color: var(--slate);
+      font-size: 13px;
+      line-height: 1.4;
+      font-weight: 650;
+    }
+
+    .reference-card {
+      margin-top: 20px;
+      border: 1px solid rgba(30, 99, 181, 0.22);
+      border-left: 5px solid var(--pakco);
+      border-radius: 12px;
+      background: var(--bluewash);
+      padding: 20px;
+    }
+
+    .reference {
+      margin: 8px 0 0;
+      color: var(--navy);
+      font-family: "Geist Mono", "SFMono-Regular", ui-monospace, monospace;
+      font-size: 26px;
+      font-weight: 900;
+      letter-spacing: -0.02em;
+    }
+
+    .activity-list {
+      display: grid;
+      gap: 10px;
+      margin: 18px 0 0;
+      padding: 0;
+      list-style: none;
+    }
+
+    .activity-list li {
+      padding: 12px 14px;
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      background: var(--canvas);
+      color: var(--ink);
+      font-size: 14px;
+      line-height: 1.35;
+      font-weight: 700;
+    }
+
+    .case-file {
+      border: 1px solid var(--border);
+      border-radius: 14px;
+      background: white;
+      overflow: hidden;
+    }
+
+    .case-top {
+      padding: 22px;
+      border-bottom: 1px solid var(--border);
+      background: white;
+    }
+
+    .case-main {
+      display: grid;
+      grid-template-columns: 0.8fr 1.2fr;
+      gap: 0;
+    }
+
+    .queue {
+      padding: 18px;
+      border-right: 1px solid var(--border);
+      background: var(--canvas);
+    }
+
+    .queue-item {
+      margin-bottom: 10px;
+      padding: 14px;
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      background: white;
+    }
+
+    .queue-item.selected {
+      background: var(--navy);
+      border-color: var(--navy);
+      color: white;
+    }
+
+    .detail {
+      padding: 18px;
+    }
+
+    .status-grid,
+    .signal-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 10px;
+      margin-top: 14px;
+    }
+
+    .status-box,
+    .signal-box {
+      padding: 13px;
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      background: white;
+    }
+
+    .status-box strong,
+    .signal-box strong,
+    .queue-item strong {
+      display: block;
+      margin-bottom: 4px;
+      color: inherit;
+      font-size: 14px;
+    }
+
+    .status-box span,
+    .signal-box span,
+    .queue-item span {
+      color: var(--slate);
+      font-size: 12px;
+      font-weight: 700;
+    }
+
+    .signal-box {
+      min-height: 118px;
+      padding: 18px;
+      background: var(--canvas);
+    }
+
+    .signal-box strong {
+      color: var(--navy);
+      font-size: 18px;
+      letter-spacing: -0.02em;
+    }
+
+    .allocation {
+      display: grid;
+      grid-template-columns: 1fr 1.2fr;
+      gap: 18px;
+      margin-top: 26px;
+    }
+
+    .lane {
+      position: relative;
+      padding: 18px;
+      border: 1px solid var(--border);
+      border-radius: 14px;
+      background: white;
+    }
+
+    .lane::before {
+      content: "";
+      position: absolute;
+      left: 0;
+      top: 18px;
+      bottom: 18px;
+      width: 4px;
+      background: var(--pakco);
+    }
+
+    .lane.amber::before {
+      background: var(--amber);
+    }
+
+    .lane.green::before {
+      background: var(--success);
+    }
+
+    .lane strong {
+      display: block;
+      color: var(--navy);
+      font-size: 18px;
+      letter-spacing: -0.015em;
+    }
+
+    .lane span {
+      display: block;
+      margin-top: 6px;
+      color: var(--slate);
+      font-size: 13px;
+      line-height: 1.45;
+      font-weight: 700;
+    }
+
+    .selected span {
+      color: rgba(255, 255, 255, 0.68);
+    }
+
+    .swatches {
+      display: flex;
+      gap: 10px;
+      margin: 18px 0 0;
+    }
+
+    .swatch {
+      height: 58px;
+      flex: 1;
+      border: 1px solid var(--border);
+      border-radius: 10px;
+    }
+
+    .bg-pakco { background: var(--pakco); }
+    .bg-navy { background: var(--navy); }
+    .bg-canvas { background: var(--canvas); }
+    .bg-bluewash { background: var(--bluewash); }
+    .bg-success { background: var(--success); }
+
+    .mock-screen {
+      border: 1px solid var(--border);
+      border-radius: 14px;
+      background: white;
+      overflow: hidden;
+    }
+
+    .mock-bar {
+      height: 46px;
+      padding: 12px 16px;
+      border-bottom: 1px solid var(--border);
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      background: var(--canvas);
+    }
+
+    .dot {
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      background: var(--border);
+    }
+
+    .mock-content {
+      padding: 22px;
+    }
+
+    .progress {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 8px;
+      margin: 16px 0 22px;
+    }
+
+    .progress span {
+      min-height: 58px;
+      padding: 10px;
+      border: 1px solid var(--border);
+      border-radius: 9px;
+      color: var(--slate);
+      font-size: 11px;
+      font-weight: 800;
+    }
+
+    .progress span:first-child {
+      background: var(--pakco);
+      border-color: var(--pakco);
+      color: white;
+    }
+
+    .form-line {
+      height: 42px;
+      margin-bottom: 10px;
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      background: white;
+    }
+
+    .button-line {
+      width: 188px;
+      height: 42px;
+      border-radius: 8px;
+      background: var(--pakco);
+    }
+
+    .outcome {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 22px;
+      margin-top: 34px;
+    }
+
+    .outcome-card {
+      padding: 28px;
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      background: white;
+    }
+
+    .outcome-card strong {
+      display: block;
+      margin-bottom: 14px;
+      color: var(--navy);
+      font-size: 26px;
+      line-height: 1.05;
+      letter-spacing: -0.03em;
+    }
+
+    .slide-footer {
+      padding-top: 24px;
+      color: var(--slate);
+      font-family: "Geist Mono", "SFMono-Regular", ui-monospace, monospace;
+      font-size: 11px;
+      font-weight: 800;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+    }
+
+    .controls {
+      position: fixed;
+      left: 50%;
+      bottom: 18px;
+      transform: translateX(-50%);
+      z-index: 10;
+      display: flex;
+      gap: 8px;
+      padding: 8px;
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      background: rgba(255, 255, 255, 0.94);
+      box-shadow: 0 10px 28px rgba(16, 42, 67, 0.12);
+    }
+
+    .controls a {
+      min-width: 42px;
+      min-height: 38px;
+      display: grid;
+      place-items: center;
+      border-radius: 8px;
+      color: var(--ink);
+      text-decoration: none;
+      font-weight: 900;
+    }
+
+    .controls a:hover {
+      background: var(--bluewash);
+      color: var(--pakco);
+    }
+
+    @media (max-width: 900px) {
+      .deck {
+        width: min(100vw - 20px, 720px);
+        padding-top: 10px;
+      }
+
+      .slide {
+        min-height: auto;
+        padding: 24px;
+      }
+
+      .split,
+      .three,
+      .outcome,
+      .allocation,
+      .signal-grid,
+      .case-main {
+        display: grid;
+        grid-template-columns: 1fr;
+      }
+
+      .journey {
+        grid-template-columns: 1fr;
+      }
+
+      .queue {
+        border-right: 0;
+        border-bottom: 1px solid var(--border);
+      }
+
+      h1 {
+        font-size: 42px;
+      }
+
+      h2 {
+        font-size: 36px;
+      }
+    }
+
+    @media print {
+      body {
+        background: white;
+      }
+
+      .deck {
+        width: 100%;
+        padding: 0;
+      }
+
+      .slide {
+        width: 100vw;
+        min-height: 100vh;
+        margin: 0;
+        border: 0;
+        border-radius: 0;
+        box-shadow: none;
+      }
+
+      .controls {
+        display: none;
+      }
+    }
+  </style>
+</head>
+<body>
+  <main class="deck">
+    <section id="slide-1" class="slide">
+      <header class="slide-header">
+        <div class="brand">
+          <div class="pakco-mark"><span>Pakco</span></div>
+          <p class="section-label">QuoteFlow workflow brief</p>
+        </div>
+        <p class="section-label">CEO presentation</p>
+      </header>
+      <div class="slide-body">
+        <p class="eyebrow">The experience shift</p>
+        <h1>Start small. Triage hard. Focus Pakco time on enterprise-fit leads.</h1>
+        <p class="lead">QuoteFlow gives customers an easy way to begin, then helps Pakco identify enterprise-band opportunities, readiness gaps, and which internal resources should be involved next.</p>
+        <div class="quote">The goal is not just better intake. It is faster triage: which enquiries deserve priority, follow-up, escalation, or a lighter path.</div>
+      </div>
+      <footer class="slide-footer">
+        <span>01</span>
+        <span>Enterprise triage, lead quality, and resource allocation</span>
+      </footer>
+    </section>
+
+    <section id="slide-2" class="slide">
+      <header class="slide-header">
+        <div class="brand">
+          <div class="pakco-mark"><span>Pakco</span></div>
+          <p class="section-label">Customer journey</p>
+        </div>
+        <p class="section-label">From first click to reference</p>
+      </header>
+      <div class="slide-body">
+        <p class="eyebrow">What the customer does</p>
+        <h2>A staged enquiry that does not ask for everything on day one.</h2>
+        <div class="journey">
+          <article class="step active">
+            <div class="number">1</div>
+            <div>
+              <h3>Start</h3>
+              <p>Company, email, and co-packaging job type.</p>
+            </div>
+          </article>
+          <article class="step">
+            <div class="number">2</div>
+            <div>
+              <h3>Size</h3>
+              <p>Estimated units, frequency, and preferred timing.</p>
+            </div>
+          </article>
+          <article class="step">
+            <div class="number">3</div>
+            <div>
+              <h3>Brief</h3>
+              <p>A plain-language product and packaging note.</p>
+            </div>
+          </article>
+          <article class="step active">
+            <div class="number">4</div>
+            <div>
+              <h3>Reference</h3>
+              <p>The enquiry is saved and can be continued later.</p>
+            </div>
+          </article>
+          <article class="step">
+            <div class="number">5</div>
+            <div>
+              <h3>Details</h3>
+              <p>Specs, photos, QA notes, packaging, and NDA documents.</p>
+            </div>
+          </article>
+        </div>
+      </div>
+      <footer class="slide-footer">
+        <span>02</span>
+        <span>First screen stays light to reduce drop-off</span>
+      </footer>
+    </section>
+
+    <section id="slide-3" class="slide">
+      <header class="slide-header">
+        <div class="brand">
+          <div class="pakco-mark"><span>Pakco</span></div>
+          <p class="section-label">Customer confidence</p>
+        </div>
+        <p class="section-label">Visible progress</p>
+      </header>
+      <div class="slide-body">
+        <div class="split">
+          <div>
+            <p class="eyebrow">What the customer sees</p>
+            <h2>The reference number becomes the trust moment.</h2>
+            <p class="lead">It tells the customer the enquiry has been received, saved, and can be continued without starting again.</p>
+            <div class="reference-card">
+              <p class="section-label">Reference created</p>
+              <p class="reference">PKQ-2026-0017</p>
+              <p class="body-copy">Contact details are saved. Pakco may ask for more detail before review.</p>
+            </div>
+          </div>
+          <div class="panel">
+            <p class="section-label">Follow-up pack</p>
+            <ul class="activity-list">
+              <li>Upload spec sheets when available</li>
+              <li>Add packaging drawings or dielines</li>
+              <li>Confirm allergens and QA considerations</li>
+              <li>Record free-issued and Pakco-sourced items</li>
+              <li>Choose Pakco NDA or upload mutual NDA</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+      <footer class="slide-footer">
+        <span>03</span>
+        <span>Missing detail becomes a follow-up task, not a blocker</span>
+      </footer>
+    </section>
+
+    <section id="slide-4" class="slide">
+      <header class="slide-header">
+        <div class="brand">
+          <div class="pakco-mark"><span>Pakco</span></div>
+          <p class="section-label">Internal visibility</p>
+        </div>
+        <p class="section-label">Lead quality and readiness</p>
+      </header>
+      <div class="slide-body">
+        <p class="eyebrow">What Pakco sees</p>
+        <h2>Each enquiry becomes a visible case, with quality signals attached.</h2>
+        <div class="case-file">
+          <div class="case-top">
+            <div class="case-header">
+              <div>
+                <p class="section-label">PKQ-2026-0017</p>
+                <h3>Hot-fill retail sauce program</h3>
+              </div>
+              <div class="reference-card" style="margin: 0; min-width: 220px;">
+                <p class="section-label">Triage band</p>
+                <p class="reference" style="font-size: 22px;">Enterprise</p>
+              </div>
+            </div>
+          </div>
+          <div class="case-main">
+            <div class="queue">
+              <div class="queue-item selected">
+                <strong>Enterprise signal</strong>
+                <span>Repeat volume, near-term timing, known packaging</span>
+              </div>
+              <div class="queue-item">
+                <strong>Readiness gaps</strong>
+                <span>Allergens, carton spec, sourced items</span>
+              </div>
+              <div class="queue-item">
+                <strong>Decision status</strong>
+                <span>Priority review for sales and operations</span>
+              </div>
+            </div>
+            <div class="detail">
+              <div class="status-grid">
+                <div class="status-box">
+                  <strong>Volume</strong>
+                  <span>120,000 units per run</span>
+                </div>
+                <div class="status-box">
+                  <strong>Frequency</strong>
+                  <span>Monthly program</span>
+                </div>
+                <div class="status-box">
+                  <strong>Timing</strong>
+                  <span>Needs near-term review</span>
+                </div>
+                <div class="status-box">
+                  <strong>Documents</strong>
+                  <span>Spec sheet and artwork supplied</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <footer class="slide-footer">
+        <span>04</span>
+        <span>Internal teams see enterprise fit, urgency, gaps, and next action in one place</span>
+      </footer>
+    </section>
+
+    <section id="slide-5" class="slide">
+      <header class="slide-header">
+        <div class="brand">
+          <div class="pakco-mark"><span>Pakco</span></div>
+          <p class="section-label">Enterprise-band triage</p>
+        </div>
+        <p class="section-label">Priority fit, not just form completion</p>
+      </header>
+      <div class="slide-body">
+        <p class="eyebrow">Most important decision</p>
+        <h2>QuoteFlow should help Pakco find the enquiries that deserve enterprise attention.</h2>
+        <div class="signal-grid">
+          <article class="signal-box">
+            <strong>Enterprise band</strong>
+            <span>Repeat volume, strong commercial signal, clear product category, and enough readiness to justify internal review.</span>
+          </article>
+          <article class="signal-box">
+            <strong>Growth band</strong>
+            <span>Promising opportunity, but may need more detail, smaller follow-up, or nurturing before deeper allocation.</span>
+          </article>
+          <article class="signal-box">
+            <strong>Needs triage</strong>
+            <span>Incomplete, unclear, unusual, or high-effort enquiries that need a careful decision before team time is committed.</span>
+          </article>
+          <article class="signal-box">
+            <strong>Not a fit yet</strong>
+            <span>Low readiness, poor fit, missing basics, or work that may need a decline or lighter response path.</span>
+          </article>
+        </div>
+        <div class="quote">The strongest value is protecting Pakco from treating every enquiry the same.</div>
+      </div>
+      <footer class="slide-footer">
+        <span>05</span>
+        <span>Enterprise-band opportunities get priority visibility and faster internal attention</span>
+      </footer>
+    </section>
+
+    <section id="slide-6" class="slide">
+      <header class="slide-header">
+        <div class="brand">
+          <div class="pakco-mark"><span>Pakco</span></div>
+          <p class="section-label">Lead quality improvement</p>
+        </div>
+        <p class="section-label">From inbox noise to qualified cases</p>
+      </header>
+      <div class="slide-body">
+        <p class="eyebrow">What improves</p>
+        <h2>Pakco can separate promising enquiries from unclear ones earlier.</h2>
+        <div class="signal-grid">
+          <article class="signal-box">
+            <strong>Commercial fit</strong>
+            <span>Volume, frequency, timing, and repeat potential are captured before deep review.</span>
+          </article>
+          <article class="signal-box">
+            <strong>Operational fit</strong>
+            <span>Job type, pack format, process needs, and readiness gaps are visible up front.</span>
+          </article>
+          <article class="signal-box">
+            <strong>Information quality</strong>
+            <span>Missing specs, photos, QA notes, and NDA items become structured follow-up tasks.</span>
+          </article>
+          <article class="signal-box">
+            <strong>Decision clarity</strong>
+            <span>The team can choose review, nurture, request more detail, escalate, or decline.</span>
+          </article>
+        </div>
+        <div class="quote">Better lead quality does not mean asking more on the first screen. It means asking the right things first, then building the case in stages.</div>
+      </div>
+      <footer class="slide-footer">
+        <span>06</span>
+        <span>Useful qualification without making the customer do all the work upfront</span>
+      </footer>
+    </section>
+
+    <section id="slide-7" class="slide">
+      <header class="slide-header">
+        <div class="brand">
+          <div class="pakco-mark"><span>Pakco</span></div>
+          <p class="section-label">Internal resource allocation</p>
+        </div>
+        <p class="section-label">Right team, right time</p>
+      </header>
+      <div class="slide-body">
+        <p class="eyebrow">What the workflow helps route</p>
+        <h2>The case file shows which enterprise-fit leads need Pakco time.</h2>
+        <div class="allocation">
+          <div class="panel tint">
+            <p class="section-label">Routing principle</p>
+            <h3>Not every enquiry needs the same internal attention.</h3>
+            <p class="body-copy">QuoteFlow should help Pakco decide whether an enquiry is enterprise-band, needs quick sales follow-up, deeper operations review, QA input, procurement checks, or leadership escalation.</p>
+          </div>
+          <div>
+            <article class="lane green">
+              <strong>Fast path</strong>
+              <span>Enterprise-band fit, enough detail, known process. Sales and operations can progress quickly.</span>
+            </article>
+            <article class="lane amber" style="margin-top: 12px;">
+              <strong>Needs detail</strong>
+              <span>Good potential, but specs, QA notes, packaging, or NDA items need customer follow-up.</span>
+            </article>
+            <article class="lane" style="margin-top: 12px;">
+              <strong>Escalate or park</strong>
+              <span>Large opportunity, unusual process, unclear fit, or heavy resource requirement.</span>
+            </article>
+          </div>
+        </div>
+      </div>
+      <footer class="slide-footer">
+        <span>07</span>
+        <span>Resource allocation becomes visible before the team commits time</span>
+      </footer>
+    </section>
+
+    <section id="slide-8" class="slide">
+      <header class="slide-header">
+        <div class="brand">
+          <div class="pakco-mark"><span>Pakco</span></div>
+          <p class="section-label">Design direction</p>
+        </div>
+        <p class="section-label">Enterprise workflow, not campaign page</p>
+      </header>
+      <div class="slide-body">
+        <div class="split">
+          <div>
+            <p class="eyebrow">How it should look and feel</p>
+            <h2>Practical, calm, and unmistakably part of Pakco.</h2>
+            <p class="lead">The interface uses Pakco blue for action and progress, with quiet surfaces that help customers and internal teams scan what matters.</p>
+            <div class="swatches">
+              <div class="swatch bg-pakco"></div>
+              <div class="swatch bg-navy"></div>
+              <div class="swatch bg-canvas"></div>
+              <div class="swatch bg-bluewash"></div>
+              <div class="swatch bg-success"></div>
+            </div>
+          </div>
+          <div class="mock-screen">
+            <div class="mock-bar">
+              <span class="dot"></span>
+              <span class="dot"></span>
+              <span class="dot"></span>
+            </div>
+            <div class="mock-content">
+              <p class="section-label">Staged enquiry</p>
+              <h3>Start with the details Pakco needs to triage.</h3>
+              <div class="progress">
+                <span>1 Contact</span>
+                <span>2 Product</span>
+                <span>3 Documents</span>
+                <span>4 Review</span>
+              </div>
+              <div class="form-line"></div>
+              <div class="form-line"></div>
+              <div class="form-line"></div>
+              <div class="button-line"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <footer class="slide-footer">
+        <span>08</span>
+        <span>Reference numbers, readiness, and tasks are the trust signals</span>
+      </footer>
+    </section>
+
+    <section id="slide-9" class="slide">
+      <header class="slide-header">
+        <div class="brand">
+          <div class="pakco-mark"><span>Pakco</span></div>
+          <p class="section-label">Experience outcome</p>
+        </div>
+        <p class="section-label">What changes</p>
+      </header>
+      <div class="slide-body">
+        <p class="eyebrow">The human result</p>
+        <h2>Less uncertainty for customers. Sharper enterprise focus for Pakco.</h2>
+        <div class="outcome">
+          <article class="outcome-card">
+            <strong>Customer feels guided</strong>
+            <p class="body-copy">They can start before the full technical pack is ready. They know what has been saved, what is missing, and how to continue.</p>
+          </article>
+          <article class="outcome-card">
+            <strong>Pakco protects enterprise time</strong>
+            <p class="body-copy">The team can identify enterprise-band leads, see readiness gaps, and decide who should act before committing time across sales, operations, QA, procurement, or leadership.</p>
+          </article>
+        </div>
+        <div class="quote">The workflow turns a messy enquiry into a visible triage case: enterprise fit, readiness, missing detail, and who should handle it next.</div>
+      </div>
+      <footer class="slide-footer">
+        <span>09</span>
+        <span>Prepared for CEO discussion</span>
+      </footer>
+    </section>
+  </main>
+
+  <nav class="controls" aria-label="Slide navigation">
+    <a href="#slide-1">1</a>
+    <a href="#slide-2">2</a>
+    <a href="#slide-3">3</a>
+    <a href="#slide-4">4</a>
+    <a href="#slide-5">5</a>
+    <a href="#slide-6">6</a>
+    <a href="#slide-7">7</a>
+    <a href="#slide-8">8</a>
+    <a href="#slide-9">9</a>
+  </nav>
+</body>
+</html>
